@@ -1,0 +1,482 @@
+@charset 'utf-8';
+
+/***************************** loading ****************************/
+/******************************************************************/
+div.loading {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 1);
+    z-index: 9999;
+}
+
+div.loading div {
+    width: 300px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div.loading div ul {
+    display: flex;
+}
+
+div.loading div ul.word li {
+    font-size: 60px;
+    font-weight: bold;
+    color: gold;
+    animation: wordAnimate 1.6s ease infinite;
+}
+
+div.loading div ul.word li:nth-of-type(1) {
+    animation-delay: 0.2s;
+}
+
+div.loading div ul.word li:nth-of-type(2) {
+    animation-delay: 0.5s;
+}
+
+div.loading div ul.word li:nth-of-type(3) {
+    animation-delay: 0.8s;
+}
+
+div.loading div ul.word li:nth-of-type(4) {
+    animation-delay: 1.1s;
+}
+
+div.loading div ul.word li:nth-of-type(5) {
+    animation-delay: 1.4s;
+}
+
+div.loading div ul.dot li {
+    font-size: 12px;
+    font-weight: bold;
+    color: gold;
+    margin: 5px 14px;
+    opacity: 0;
+    animation: dotAnimate 1.6s linear infinite;
+}
+
+div.loading div ul.dot li:nth-of-type(1) {
+    animation-delay: 0.2s;
+}
+
+div.loading div ul.dot li:nth-of-type(2) {
+    animation-delay: 0.5s;
+}
+
+div.loading div ul.dot li:nth-of-type(3) {
+    animation-delay: 0.8s;
+}
+
+div.loading div ul.dot li:nth-of-type(4) {
+    animation-delay: 1.1s;
+}
+
+div.loading div ul.dot li:nth-of-type(5) {
+    animation-delay: 1.4s;
+}
+
+@keyframes wordAnimate {
+
+    0%,
+    20%,
+    100% {
+        transform: translateY(0);
+    }
+
+    10% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes dotAnimate {
+
+    0%,
+    20%,
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    10% {
+        opacity: 1;
+        transform: scale(2);
+    }
+}
+
+/**************************** keyvisual ***************************/
+/******************************************************************/
+main div#keyvisual .carousel-inner {
+    width: 100%;
+    height: calc(100vh - 140px);
+    box-sizing: border-box;
+    border: 5px solid gold;
+}
+
+main div#keyvisual .carousel-inner .carousel-item {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+main div#keyvisual .carousel-inner .carousel-item:nth-of-type(1) {
+    background-image: url(../images/keyvisual/keyvisual_slide01.jpg);
+}
+
+main div#keyvisual .carousel-inner .carousel-item:nth-of-type(2) {
+    background-image: url(../images/keyvisual/keyvisual_slide02.jpg);
+}
+
+main div#keyvisual .carousel-inner .carousel-item:nth-of-type(3) {
+    background-image: url(../images/keyvisual/keyvisual_slide03.jpg);
+}
+
+main div#keyvisual ol.carousel-indicators {
+    transform: translateY(-5px);
+}
+
+
+/****************************** works *****************************/
+/******************************************************************/
+div.works {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+div.works div.contents {
+    width: 300px;
+    height: 350px;
+    margin-top: 20px;
+    background-color: gold;
+    cursor: pointer;
+}
+
+div.works div.contents div.thumb {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+}
+
+div.works div.contents div.thumb img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s;
+}
+
+div.works div.contents:hover div.thumb img {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+
+div.works div.contents div.name {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+div.works div.contents div.time {
+    margin-top: 5px;
+    margin-left: 10px;
+    font-size: 12px;
+    color: white;
+}
+
+/**********************************************/
+/******************* @media *******************/
+/**********************************************/
+@media only screen and (max-width: 960px) {
+    div.works div.contents {
+        width: calc((100% - 20px) / 2);
+    }
+
+    div.works div.contents div.thumb {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    div.works div.contents {
+        width: 100%;
+    }
+
+    div.works div.contents div.thumb {
+        width: 100%;
+    }
+}
+
+
+/***************************** profile ****************************/
+/******************************************************************/
+div.profile {
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*************** icon ***************/
+div.profile div.icon {
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+    border-radius: 100px;
+    border: 10px solid gold;
+    background-image: url(../images/icon.jpg);
+    background-size: cover;
+}
+
+/*************** table ***************/
+div.profile table {
+    width: 500px;
+    border: 2px solid gold;
+    border-collapse: collapse;
+}
+
+div.profile table tr {
+    height: 50px;
+}
+
+div.profile table tr:nth-of-type(even) {
+    background-color: rgba(255, 215, 0, 0.2);
+}
+
+div.profile table tr:nth-of-type(odd) {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+div.profile table tr th {
+    width: 50%;
+    font-size: 20px;
+    border: 2px solid gold;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+div.profile table tr td {
+    border: 2px solid gold;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+div.profile table tr td p {
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+div.profile table tr th h3 span {
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+/*************** skill ***************/
+div.profile div.skill {
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+div.profile div.skill div.card {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.3s;
+    border: none;
+    background-color: rgb(240, 240, 240);
+}
+
+div.profile div.skill div.card:hover {
+    transform: translateY(-10px);
+}
+
+div.profile div.skill div.card div.percent {
+    width: 170px;
+    height: 170px;
+    position: relative;
+    border-radius: 50%;
+}
+
+div.card div.percent div.number {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+    top: -5px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.card div.percent div.number p {
+    font-size: 30px;
+    font-weight: 400;
+    transition: all 0.3s;
+}
+
+div.card:hover div.percent div.number p {
+    font-size: 50px;
+    font-weight: 700;
+}
+
+div.card div.percent div.number p span {
+    font-size: 20px;
+}
+
+p.text {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+svg {
+    width: 170px;
+    height: 170px;
+    position: relative;
+}
+
+svg circle {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: black;
+    stroke-linecap: round;
+    transform: translate(10px, 10px);
+}
+
+svg circle:nth-child(1) {
+    stroke-width: 6;
+}
+
+svg circle:nth-child(2) {
+    stroke-width: 16;
+    stroke-dasharray: 440;
+    stroke: gold;
+}
+
+div.card:nth-of-type(1) svg circle:nth-child(2) {
+    stroke-dashoffset: calc(440 - (440 * 0.7));
+}
+
+div.card:nth-of-type(2) svg circle:nth-child(2) {
+    stroke-dashoffset: calc(440 - (440 * 0.85));
+}
+
+div.card:nth-of-type(3) svg circle:nth-child(2) {
+    stroke-dashoffset: calc(440 - (440 * 0.9));
+}
+
+div.card:nth-of-type(4) svg circle:nth-child(2) {
+    stroke-dashoffset: calc(440 - (440 * 0.9));
+}
+
+/**********************************************/
+/******************* @media *******************/
+/**********************************************/
+@media only screen and (max-width: 768px) {
+    div.profile div.skill {
+        flex-wrap: wrap;
+    }
+
+    div.profile div.skill div.card {
+        width: calc((100% - 20px) / 2);
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    div.profile table {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 410px) {
+    div.profile table tr th {
+        font-size: 16px;
+    }
+
+    div.profile table tr td p {
+        font-size: 16px;
+        margin-left: 10px;
+    }
+    
+    div.profile table tr th h3 span {
+        font-size: 12px;
+    }
+
+    div.profile div.skill div.card {
+        width: 100%;
+    }
+}
+
+
+/***************************** contact ****************************/
+/******************************************************************/
+div.contact {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+div.contact form {
+    width: 600px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+div.contact form label {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+div.contact form input[type=text],
+div.contact form textarea {
+    width: 100%;
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 1px solid gold;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+div.contact form textarea {
+    min-height: 300px;
+}
+
+div.contact form input[type=submit] {
+    width: 150px;
+    margin: 0 auto;
+    padding: 15px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    background-color: gold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+div.contact form input[type=submit]:hover {
+    background-color: rgb(255, 185, 0);
+}

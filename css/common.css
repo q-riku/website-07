@@ -1,0 +1,441 @@
+@charset 'utf-8';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'M PLUS 1p', sans-serif;
+    background-color: rgb(240, 240, 240);
+    overflow-y: scroll;
+    position: relative;
+}
+
+a,
+a:hover,
+a:active,
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+.wrapper {
+    width: 960px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 35px;
+    font-weight: 300;
+}
+
+/**********************************************/
+/******************* @media *******************/
+/**********************************************/
+@media only screen and (max-width: 960px) {
+    .wrapper {
+        width: calc(100% - 40px);
+        min-width: 280px;
+    }
+}
+
+@media only screen and (max-width: 410px) {
+    h1 {
+        font-size: 25px;
+    }
+}
+
+
+/***************************** header *****************************/
+/******************************************************************/
+header {
+    height: 60px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+/***************************** logo *****************************/
+header div.logo {
+    height: 100%;
+    width: 50%;
+    min-width: 410px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px dashed black;
+}
+
+header div.logo span {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+header div.logo a:hover {
+    opacity: 0.7;
+}
+
+/***************************** menuBtn *****************************/
+header div.menuBtn {
+    width: 60px;
+    height: 40px;
+    position: fixed;
+    right: 20px;
+    top: 10px;
+    border-radius: 4px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: gold;
+    cursor: pointer;
+    z-index: 999;
+}
+
+header div.menuBtn div {
+    width: 40px;
+    height: 2px;
+    margin: 3px 0;
+    background-color: black;
+    transition: all 0.3s;
+}
+
+header div.change div:nth-of-type(1) {
+    transform: translate(0, 8px) rotate(45deg);
+}
+
+header div.change div:nth-of-type(2) {
+    opacity: 0;
+}
+
+header div.change div:nth-of-type(3) {
+    transform: translate(0, -8px) rotate(-45deg);
+}
+
+/**********************************************/
+/******************* @media *******************/
+/**********************************************/
+@media only screen and (max-width: 960px) {
+    header div.menuBtn {
+        display: flex;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    header div.logo {
+        width: 100%;
+        min-width: auto;
+    }
+}
+
+@media only screen and (max-width: 410px) {
+    header div.logo span {
+        font-size: 14px;
+    }
+}
+
+/***************************** nav *****************************/
+header nav {
+    display: flex;
+    flex-direction: column;
+    z-index: 99;
+}
+
+header nav ul {
+    display: flex;
+}
+
+/*************** SNS ***************/
+header nav ul.SNS {
+    margin-bottom: 10px;
+    font-size: 20px;
+    justify-content: flex-end;
+}
+
+header nav ul.SNS li {
+    margin-right: 20px;
+}
+
+header nav ul.SNS li:last-child {
+    margin-right: 0;
+}
+
+header nav ul.SNS li a {
+    transition: all 0.2s;
+}
+
+header nav ul.SNS li:hover a {
+    color: gold;
+}
+
+/*************** menu ***************/
+header nav ul.menu li {
+    margin-right: 40px;
+    position: relative;
+}
+
+header nav ul.menu li:last-child {
+    margin-right: 0;
+}
+
+a.current::before,
+header nav ul.menu li:hover a::before {
+    content: '';
+    position: absolute;
+    left: -12px;
+    top: 4px;
+    width: 7px;
+    height: 7px;
+    transform: rotate(45deg);
+    background-color: gold;
+}
+
+a.current::after,
+header nav ul.menu li:hover a::after {
+    content: '';
+    position: absolute;
+    right: -12px;
+    top: 4px;
+    width: 7px;
+    height: 7px;
+    transform: rotate(45deg);
+    background-color: gold;
+}
+
+/**********************************************/
+/******************* @media *******************/
+/**********************************************/
+@media only screen and (max-width: 960px) {
+    header nav {
+        width: 100%;
+        height: 100vh;
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(240, 240, 240, 0.9);
+    }
+
+    header nav ul.SNS {
+        padding-top: 80px;
+        justify-content: center;
+    }
+
+    header nav ul.menu {
+        width: 100%;
+        display: block;
+    }
+
+    header nav ul.menu li {
+        width: 100%;
+        height: 40px;
+        margin-right: 0;
+        text-align: center;
+    }
+
+    header nav ul.menu li a {
+        display: block;
+        padding: 12px 0;
+    }
+
+    header nav ul.menu li:hover {
+        background-color: white;
+    }
+
+    a.current::before,
+    header nav ul.menu li:hover a::before {
+        left: calc((100% - 200px) / 2);
+        top: 16px;
+    }
+
+    a.current::after,
+    header nav ul.menu li:hover a::after {
+        right: calc((100% - 200px) / 2);
+        top: 16px;
+    }
+}
+
+
+/*****************************  main  *****************************/
+/******************************************************************/
+main div.title {
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    border-bottom: 3px double gold;
+}
+
+main div.title h2 {
+    font-size: 35px;
+    font-weight: bold;
+    color: black;
+    position: relative;
+    margin: 20px 0;
+}
+
+main div.title h2::before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 8px;
+    width: 15px;
+    height: 15px;
+    transform: rotate(45deg);
+    background-color: gold;
+}
+
+main div.title h2::after {
+    content: '';
+    position: absolute;
+    right: -30px;
+    top: 8px;
+    width: 15px;
+    height: 15px;
+    transform: rotate(45deg);
+    background-color: gold;
+}
+
+/**********************************************/
+/******************* @media *******************/
+/**********************************************/
+@media only screen and (max-width: 410px) {
+    main div.title h2 {
+        font-size: 25px;
+        margin: 20px 0;
+    }
+
+    main div.title h2::before {
+        top: 5px;
+    }
+    
+    main div.title h2::after {
+        top: 5px;
+    }
+}
+
+
+/***************************** footer *****************************/
+/******************************************************************/
+footer {
+    height: 40px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 2px solid gold;
+}
+
+small {
+    font-size: 12px;
+}
+
+
+/****************************** modal *****************************/
+/******************************************************************/
+div.modal {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+div.modal div#bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 0;
+}
+
+div.modal div.closeMark {
+    width: 70px;
+    height: 70px;
+    background-color: rgba(0, 0, 0, 0.9);;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border: 2px solid white;
+    transition: all 0.3s;
+    cursor: pointer;
+    z-index: 888;
+}
+
+div.modal div.closeMark:hover {
+    border: 5px solid white;
+}
+
+div.modal div.closeMark div {
+    width: 50px;
+    height: 2px;
+    background-color: white;
+}
+
+div.modal div.closeMark div:nth-of-type(1) {
+    transform: translateY(2px) rotate(45deg);
+}
+
+div.modal div.closeMark div:nth-of-type(2) {
+    transform: translateY(-2px) rotate(-45deg);
+}
+
+div.modal div.line {
+    width: 0;
+    height: 300px;
+    position: absolute;
+    top: calc((100% - 300px) / 2);
+    right: 0;
+    background-color: gold;
+    box-sizing: border-box;
+    border-top: 3px double black;
+    border-bottom: 3px double black;
+}
+
+div.modal div.photo {
+    position: relative;
+}
+
+div.modal div.photo a {
+    display: block;
+}
+
+div.modal div.photo img {
+    width: auto;
+    height: 80vh;
+    object-fit: cover;
+}
+
+/**********************************************/
+/******************* @media *******************/
+/**********************************************/
+@media only screen and (max-width: 960px) {
+    div.modal div.closeMark {
+        width: 50px;
+        height: 50px;
+    }
+
+    div.modal div.closeMark div {
+        width: 30px;
+    }
+
+    div.modal div.closeMark div:nth-of-type(1) {
+        transform: translateY(1px) rotate(45deg);
+    }
+    
+    div.modal div.closeMark div:nth-of-type(2) {
+        transform: translateY(-1px) rotate(-45deg);
+    }
+}
